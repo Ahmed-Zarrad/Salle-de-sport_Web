@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}X GYM - Home{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="{{asset('site.webmanifest')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('front-office/assets/img/favicon.ico')}}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/slicknav.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/gijgo.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/animated-headline.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/assets/css/style.css')}}">
+</head>
+<body class="black-bg">
+{% block WholeBody %}
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{{asset('front-office/assets/img/logo/loder.png')}}" alt="symfony!">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="{{path('home')}}"><img src="{{ asset('front-office/assets/img/logo/logo.png') }}" alt="Symfony!"></a>
+                        </div>
+
+                        <!-- Header-btn -->
+                        <div class="header-btns d-none d-lg-block f-right">
+                            <a href="{{path('inscription')}}" class="btn">Sign up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+{% block login %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" STYLE=" margin-top: 20%;color: white ">
+            <div class="row">
+                <div class="col-lg-12">
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal" style="font-size: 40px; margin-bottom: 10%; margin-left: 40%">Please sign in</h1>
+    <label for="inputEmail" style="font-size: 30px">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword" style="font-size: 30px">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me" style="font-size: 10px; margin-top: 5%"> Remember me
+            </label>
+        </div>
+
+    <button class="btn btn-lg btn-primary" type="submit" style="margin-left: 40%; margin-top: 5%">
+        Sign in
+    </button>
+    <a href="{{path('backoffice')}}" class="btn" style="margin-left: 40%; margin-top: 5%">Sign in</a>
+
+</form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+    <div>
+
+    </div>
+
+<!-- Scroll Up -->
+<div id="back-top" >
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
+
+<!-- JS here -->
+
+<script src="{{ asset('./front-office/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="{{ asset('./front-office./assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
+<script src="{{ asset('./front-office./assets/js/popper.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/bootstrap.min.js')}}"></script>
+<!-- Jquery Mobile Menu -->
+<script src="{{ asset('./front-office/assets/js/jquery.slicknav.min.js')}}"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="{{ asset('./front-office/assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/slick.min.js')}}"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="{{ asset('./front-office/assets/js/wow.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/animated.headline.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/jquery.magnific-popup.js')}}"></script>
+
+<!-- Date Picker -->
+<script src="{{ asset('./front-office/assets/js/gijgo.min.js')}}"></script>
+<!-- Nice-select, sticky -->
+<script src="{{ asset('./front-office/assets/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/jquery.sticky.js')}}"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="{{ asset('./front-office/assets/js/jquery.counterup.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/waypoints.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/jquery.countdown.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/hover-direction-snake.min.js')}}"></script>
+
+<!-- contact js -->
+<script src="{{ asset('./front-office/assets/assets/js/contact.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/jquery.form.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/jquery.validate.min.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/mail-script.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/jquery.ajaxchimp.min.js')}}"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="{{ asset('./front-office/assets/js/plugins.js')}}"></script>
+<script src="{{ asset('./front-office/assets/js/main.js')}}"></script>
+
+{% endblock %}
+</body>
+</html>

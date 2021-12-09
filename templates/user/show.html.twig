@@ -1,0 +1,66 @@
+{% extends 'baseBack-Office.html.twig' %}
+
+{% block title %}Show User{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container">
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ user.role }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_User</th>
+                <td>{{ user.AdresseUser }}</td>
+            </tr>
+            <tr>
+                <th>Cin_User</th>
+                <td>{{ user.CinUser }}</td>
+            </tr>
+            <tr>
+                <th>Date_N_User</th>
+                <td>{{ user.DateNUser }}</td>
+            </tr>
+            <tr>
+                <th>Email_User</th>
+                <td>{{ user.EmailUser }}</td>
+            </tr>
+            <tr>
+                <th>Nom_User</th>
+                <td>{{ user.NomUser }}</td>
+            </tr>
+            <tr>
+                <th>Num_User</th>
+                <td>{{ user.NumUser }}</td>
+            </tr>
+            <tr>
+                <th>Password_user</th>
+                <td>{{ user.PasswordUser }}</td>
+            </tr>
+            <tr>
+                <th>Prenom_User</th>
+                <td>{{ user.PrenomUser }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_index') }}">back to list</a>
+
+    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}

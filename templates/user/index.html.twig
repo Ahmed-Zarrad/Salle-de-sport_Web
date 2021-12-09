@@ -1,0 +1,58 @@
+{% extends 'baseBack-Office.html.twig' %}
+
+{% block title %}User List{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container">
+    <h1>User index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Id</th>
+                <th>Adresse_User</th>
+                <th>Cin_User</th>
+                <th>Date_N_User</th>
+                <th>Email_User</th>
+                <th>Nom_User</th>
+                <th>Num_User</th>
+                <th>Password_user</th>
+                <th>Prenom_User</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.role }}</td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.AdresseUser }}</td>
+                <td>{{ user.CinUser }}</td>
+                <td>{{ user.DateNUser }}</td>
+                <td>{{ user.EmailUser }}</td>
+                <td>{{ user.NomUser }}</td>
+                <td>{{ user.NumUser }}</td>
+                <td>{{ user.PasswordUser }}</td>
+                <td>{{ user.PrenomUser }}</td>
+
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_new') }}">Create new</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

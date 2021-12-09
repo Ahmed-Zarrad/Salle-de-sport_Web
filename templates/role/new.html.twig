@@ -1,0 +1,17 @@
+{% extends 'baseBack-Office.html.twig' %}
+
+{% block title %}User List{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container">
+    <h1>Create new Role</h1>
+
+    {{ include('role/_form.html.twig') }}
+
+    <a href="{{ path('role_index') }}">back to list</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

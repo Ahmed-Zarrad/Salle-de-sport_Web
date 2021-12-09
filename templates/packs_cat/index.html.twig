@@ -1,0 +1,41 @@
+{% extends 'baseBack-Office.html.twig' %}
+
+{% block title %}Packs category list{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" style="margin-left: 5%">
+    <h1>Packs category list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pcat_nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for packs_cat in packs_cats %}
+            <tr>
+                <td>{{ packs_cat.id }}</td>
+                <td>{{ packs_cat.pcatNom }}</td>
+                <td>
+                    <a href="{{ path('packs_cat_show', {'id': packs_cat.id}) }}">show</a>
+                    <a href="{{ path('packs_cat_edit', {'id': packs_cat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('packs_cat_new') }}">Create new</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'baseBack-Office.html.twig' %}
+
+{% block title %}Creat new pack{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" style="margin-left: 5%">
+    <h1>Create new pack</h1>
+
+            {% set flashbag_notices = app.session.flashbag.get('notice') %}
+            {% if flashbag_notices is not empty %}
+                <ul class ="msg">
+                    {% for notice in flashbag_notices %}
+                        <li> {{ notice }} </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+    {{ include('packs/_form.html.twig') }}
+
+    <a href="{{ path('packs_index') }}">back to list</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

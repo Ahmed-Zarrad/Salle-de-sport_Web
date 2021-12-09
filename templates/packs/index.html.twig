@@ -1,0 +1,60 @@
+{% extends 'baseBack-Office.html.twig' %}
+
+{% block title %}Packs list{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" style="margin-left: 5%">
+
+
+            <h1>Packs list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pack_category</th>
+                <th>Pack_amount</th>
+                <th>Pack_duration</th>
+                <th>Pack_expiration_date</th>
+                <th>Pack_description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <div class="row">
+            {% for pack in packs %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div style="border-style: solid;border-width: thin; border-color: red;border-radius: 2px ; padding: 20px" >
+                            <div class="about-icon">
+                                <img src="{{ asset('./front-office/assets/img/icon/price.svg')}}" alt="symfony!">
+                            </div>
+                            <div class="properties__caption" style="font-size: 30px">
+                                <span class="month">{{ pack.Category }}</span>
+                                <p class="mb-25"style="font-size: 20px" ><span class="month" style="color: red" >{{ pack.packAmount }}</span><span class="month" style="color: red"> dt</span><span class="month" style="color: red"> /</span>  <span class="month" style="color: red">{{ pack.packDuration }}</span></p>
+                                <div class="single-features">
+                                    <div class="features-icon" >
+                                        <img src="{{ asset('./front-office/assets/img/icon/check.svg')}}" alt="symfony!">
+                                    </div>
+                                </div>
+                                    <div class="features-caption">
+                                        <p style="font-size: 20px; margin-left: 30px; margin-bottom: 30px">{{ pack.packDescription }} </p>
+
+                                </div>
+
+                                <a href="{{ path('packs_show', {'id': pack.id}) }}" class="border-btn border-btn2" style="margin-bottom: 10px">show</a>
+                                <a href="{{ path('packs_edit', {'id': pack.id}) }}" class="border-btn border-btn2">edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div>
+                    <p >no records found</p>
+                </div>
+    </div>
+            {% endfor %}
+
+
+{% endblock %}
